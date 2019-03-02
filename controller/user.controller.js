@@ -23,7 +23,7 @@ exports.getUser = (req, res) => {
 
     models.User.findById(id)
         .then(user => {
-            res.json({user : user});
+            res.json({data : user});
         })
         .catch(err => {
             console.log(err);
