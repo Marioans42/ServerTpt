@@ -4,8 +4,11 @@
       "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
       "database": "dfctu4th5k3pk3",
       "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-      "dialect": "psql",
-      "port":"5432",
+      "dialect": "postgres",
+      "ssl": true,
+      "dialectOptions": {
+        "ssl": true
+      },
       "define" : {
         "timestamps": false
         }
@@ -15,8 +18,11 @@
       "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
       "database": "dfctu4th5k3pk3",
       "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-      "dialect": "psql",
-      "port":"5432",
+      "dialect": "postgres",
+      "ssl": true,
+      "dialectOptions": {
+        "ssl": true
+      },
       "define" : {
         "timestamps": false
         }
@@ -26,8 +32,11 @@
       "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
       "database": "dfctu4th5k3pk3",
       "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-      "dialect": "psql",
-      "port":"5432",
+      "dialect": "postgres",
+      "ssl": true,
+      "dialectOptions": {
+        "ssl": true
+      },
       "define" : {
         "timestamps": false
         }
