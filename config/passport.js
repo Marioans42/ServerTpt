@@ -5,15 +5,13 @@ const models = require('../models/database')
 
 module.exports = (passport) => {
     passport.use ('local-signup',
-        new LocalStrategy({ usernameField: 'Name', passwordField:'Password' },(name, password, done) => {
-            models.User.findOne({ where: {Name: name} }).then(user => {
+        new LocalStrategy({ usernameField: 'name', passwordField:'password' },(email, password, done) => {
+            models.User.findOne({ where: {email: email} }).then(user => {
                 if(!user) {
-                    
-                    return done(null, false, { message: 'That email is not registered' });
-                   
+                    return done(null, false, { message: 'That email is not registered' }); 
                 }
                 //console.log(user)
-                bcrypt.compare(password, user.Password, (err, isMatch) => {
+                bcrypt.compare(password, user.password, (err, isMatch) => {
                     if (err) throw err;
                     if (isMatch) {
                       return done(null, user);

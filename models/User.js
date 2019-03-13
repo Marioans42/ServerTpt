@@ -2,13 +2,13 @@ const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
 const User = sequelize.define('User', {
-    Name: DataTypes.STRING,
-    Lastname: DataTypes.STRING,
-    Username: DataTypes.STRING,
+    name: DataTypes.STRING,
+    lastname: DataTypes.STRING,
+    username: DataTypes.STRING,
     email: DataTypes.STRING,
-    Password: DataTypes.STRING,
-    Description: DataTypes.STRING,
-    Datesignup: {
+    password: DataTypes.STRING,
+    description: DataTypes.STRING,
+    datesignup: {
         type: DataTypes.DATE,
         defaultValue: new Date(Date.now())
       }
@@ -16,15 +16,16 @@ const User = sequelize.define('User', {
     hooks : {
         beforeCreate : (User , options) => {
             {
-                User.Password = User.Password && User.Password != "" ? bcrypt.hashSync(User.Password, 10) : "";
+                User.password = User.password && User.password != "" ? bcrypt.hashSync(User.password, 10) : "";
             }
         }
     }
 });
 
 User.associate = (models) => {
-    models.User.belongsTo(models.Region, {foreignKey:'RegionID'});
-    models.User.belongsTo(models.Role, {foreignKey:'RoleID'});
+    models.User.belongsTo(models.Region, {foreignKey:'regionID'});
+   models.User.belongsTo(models.Role, {foreignKey:'roleID'});
+   
 }
 
 

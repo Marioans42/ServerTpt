@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Region = sequelize.define('Region', {
-        Name: DataTypes.STRING
+        name: DataTypes.STRING,
+        code : DataTypes.INTEGER
     });
 
     /*Region.associate = (models) => {
