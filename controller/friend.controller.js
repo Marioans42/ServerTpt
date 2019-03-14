@@ -34,7 +34,7 @@ etat averina
     let id = req.params.id; //current user
     let id2 = req.params.id2;
 
-    models.sequelize.query('update friends set state = 5 where (usersid =$1 and usersid2 =$2) or (usersid =$2 and usersid2 =$1)',
+    models.sequelize.query('update friends set state = 5 where (usersid =$1 and usersid2 =$2) ',
     { bind: [id, id2] ,
       model : models.Friends,
       type: models.sequelize.QueryTypes.UPDATE})
