@@ -23,8 +23,8 @@ const User = sequelize.define('User', {
 });
 
 User.associate = (models) => {
-    models.User.belongsTo(models.Region, {foreignKey:'regionID'});
-   models.User.belongsTo(models.Role, {foreignKey:'roleID'});
+    models.User.belongsTo(models.Region, {foreignKey:'regionid'});
+   models.User.belongsTo(models.Role, {foreignKey:'roleid'});
    
 }
 

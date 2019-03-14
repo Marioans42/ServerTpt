@@ -4,6 +4,7 @@ const db = require('./models/database');
 const user = require('./routes/User.routes');
 const game = require('./routes/Game.routes');
 const profil = require('./routes/Profil.routes');
+const friend = require('./routes/Friend.routes')
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -36,6 +37,7 @@ app.use(flash());
 app.use('/api/user',user);
 app.use('/api/game',game);
 app.use('/api/profil',profil);
+app.use('/api/friend', friend);
 
 db.sequelize
   .sync()
