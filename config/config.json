@@ -1,43 +1,31 @@
 
 {
   "development": {
-    "username": "bfiwxpylvpmsrd",
-    "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
-    "database": "dfctu4th5k3pk3",
-    "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "ssl": true,
-    "dialectOptions": {
-      "ssl": true
-    },
+    "username": "tptnfcm2",
+    "password": "tptnfcm2!",
+    "database": "tptnfcm2",
+    "host": "den1.mysql6.gear.host",
+    "dialect": "mysql",
     "define" : {
       "timestamps": false
       }
   },
   "test": {
-    "username": "bfiwxpylvpmsrd",
-    "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
-    "database": "dfctu4th5k3pk3",
-    "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "ssl": true,
-    "dialectOptions": {
-      "ssl": true
-    },
+    "username": "tptnfcm2",
+    "password": "tptnfcm2!",
+    "database": "tptnfcm2",
+    "host": "den1.mysql6.gear.host",
+    "dialect": "mysql",
     "define" : {
       "timestamps": false
       }
   },
   "production": {
-    "username": "bfiwxpylvpmsrd",
-    "password": "576363f744795a7ead465a47d73be916e040c9148e65d5a87e113e671b5cef8a",
-    "database": "dfctu4th5k3pk3",
-    "host": "ec2-54-221-236-144.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "ssl": true,
-    "dialectOptions": {
-      "ssl": true
-    },
+    "username": "tptnfcm2",
+    "password": "tptnfcm2!",
+    "database": "tptnfcm2",
+    "host": "den1.mysql6.gear.host",
+    "dialect": "mysql",
     "define" : {
       "timestamps": false
       }
