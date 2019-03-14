@@ -28,7 +28,7 @@ exports.getProfil = (req, res) => {
         { model:models.Technologies},
         { model:models.Platform},
         { model:models.Tag}
-    ], where : {usersid: id}})
+    ], where : {usersid: id2}})
 
     Promise
     .all([status, demandeur, demande, user, game])
