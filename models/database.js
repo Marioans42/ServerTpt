@@ -13,7 +13,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-const sequelize = new Sequelize('tpt', 'root', '', {
+/*const sequelize = new Sequelize('tpt', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false,
@@ -28,7 +28,7 @@ const sequelize = new Sequelize('tpt', 'root', '', {
     define: {
       timestamps: false
   }
-})
+})*/
 
 fs
   .readdirSync(__dirname)
