@@ -19,7 +19,7 @@ exports.getProfil = (req, res) => {
       type: models.sequelize.QueryTypes.SELECT})
 
 
-    const user = models.User.findByPk(id, {   
+    const user = models.User.findByPk(id2, {   
         include: [ 
             { model:models.Role},
             { model:models.Region}]
@@ -28,7 +28,7 @@ exports.getProfil = (req, res) => {
         { model:models.Technologies},
         { model:models.Platform},
         { model:models.Tag}
-    ], where : {usersid: id}})
+    ], where : {usersid: id2}})
 
     Promise
     .all([status, demandeur, demande, user, game])
