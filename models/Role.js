@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
     const Role = sequelize.define('Role', {
-        Label: DataTypes.STRING,
+        label: DataTypes.STRING,
         value: DataTypes.INTEGER
     });
     

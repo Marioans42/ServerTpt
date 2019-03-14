@@ -1,13 +1,11 @@
-'use strict'
-
 const models = require ('../models/database');
 const passport = require('passport');
 
 exports.allUsers = (req, res) => {
     models.User.findAll({   
-        include: [{
-            model: models.Role
-        }]
+        include: [ 
+            { model:models.Role},
+            { model:models.Region}]
     })
     .then(user => {
         res.json(user)
@@ -21,9 +19,16 @@ exports.allUsers = (req, res) => {
 exports.getUser = (req, res) => {
     let id = req.params.id;
 
-    models.User.findById(id)
-        .then(user => {
-            res.json({data : user});
+    models.User.findByPk(id, {   
+        include: [ 
+            { model:models.Role},
+            { model:models.Region}]
+    })
+        .then(user => { 
+        if(!user) {
+            res.status(404).send('User not found')
+        } else
+            res.json(user);
         })
         .catch(err => {
             console.log(err);
@@ -41,7 +46,7 @@ exports.signUp = (req, res) => {
         Description: req.body.Description
     };*/
     
-    models.User.create({...req.body,RoleID: 1, RegionID:1})
+    models.User.create({...req.body})
         /*.then(newUser => newUser.createRole ({
             label: 'admin',
             value: 1
@@ -57,7 +62,20 @@ exports.signUp = (req, res) => {
 
 exports.signIn = (req, res, next) => {
     passport.authenticate('local-signup',  (err, user) => {
-        res.json(user)
+        if(user) {
+            res.json({
+                id : user.id,
+                name: user.name,
+                lastname : user.lastname,
+                username : user.username,
+                email : user.email,
+                description : user.description,
+                datesignup : user.datesignup
+            })
+        } else {
+            res.status(404).json(err)
+        }
+
     })(req, res, next)
 }
 
