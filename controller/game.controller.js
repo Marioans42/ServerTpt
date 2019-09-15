@@ -1,7 +1,6 @@
 
 const models = require('../models/database');
 const fs = require('fs');
-const convertBase64 = require('base64-arraybuffer');
 
 exports.createGame = async (req, res) => {
     console.log("atooo")
