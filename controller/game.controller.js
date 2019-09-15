@@ -48,7 +48,9 @@ exports.createGame = async (req, res) => {
             })
 
             let image = await models.Images.findAll({
-                GamesID: game.ID
+                where: {
+                    GamesID: game.ID
+                }
             })
             game.dataValues.images = image;
             res.status(200).json({ game });
@@ -66,15 +68,12 @@ exports.allGame = async (req, res) => {
     })
         .then(async  game => {
             for (let i = 0; i < game.length; i++) {
-                console.log("avant")
                 let image = await models.Images.findAll({
-                    GamesID: game.ID
+                    where: {
+                        GamesID: game.ID
+                    }
                 })
-                console.log("apres")
-                // console.log("ahahahahahah",image[0].dataValues.picture);
-                // game[i].dataValues.images = image[0].dataValues.picture.toString();
                 game[i].dataValues.images = image;
-                // console.log('game[' + i + ']', game[i])
             }
             res.status(200).json({ game })
         })
@@ -99,11 +98,48 @@ exports.getGame = (req, res) => {
                 res.status(404).send('User not found')
             } else {
                 let image = await models.Images.findAll({
-                    GamesID: game.id
+                    where: {
+                        GamesID: game.ID
+                    }
                 })
                 console.log(image);
                 game.dataValues.images = image;
                 console.log('game', game)
+                res.status(200).json({ game })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).send(err);
+        })
+}
+
+exports.getGameUser = (req, res) => {
+    let id = req.params.idUser;
+
+    models.Games.findAll({
+        where: {
+            UsersID: id
+        }
+    }, {
+        include: [
+            { model: models.Technologies },
+            { model: models.Platform },
+            { model: models.Tag },
+        ]
+    })
+        .then(async (game) => {
+            if (!game) {
+                res.status(404).send('User not found')
+            } else {
+                for (let i = 0; i < game.length; i++) {
+                    let image = await models.Images.findAll({
+                        where: {
+                            GamesID: game.ID
+                        }
+                    })
+                    game[i].dataValues.images = image;
+                }
                 res.status(200).json({ game })
             }
         })
