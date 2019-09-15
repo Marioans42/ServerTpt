@@ -19,11 +19,7 @@ exports.getProfil = (req, res) => {
       type: models.sequelize.QueryTypes.SELECT})
 
 
-    const user = models.User.findByPk(id2, {   
-        include: [ 
-            { model:models.Role},
-            { model:models.Region}]
-    });
+    const user = models.User.findByPk(id2);
     const game = models.Games.findAll({include: [
         { model:models.Technologies},
         { model:models.Platform},
