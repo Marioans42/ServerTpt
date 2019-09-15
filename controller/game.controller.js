@@ -71,7 +71,7 @@ exports.allGame = async (req, res) => {
                     GamesID: game.ID
                 })
                 console.log("apres")
-                console.log("ahahahahahah",image[0].dataValues.picture);
+                // console.log("ahahahahahah",image[0].dataValues.picture);
                 // game[i].dataValues.images = image[0].dataValues.picture.toString();
                 game[i].dataValues.images = image;
                 // console.log('game[' + i + ']', game[i])
