@@ -14,6 +14,7 @@ const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT;
+// const port = 3000;
 
 require('./config/passport')(passport);
 
@@ -40,8 +41,8 @@ app.use('/api/profil',profil);
 app.use('/api/friend', friend);
 
 db.sequelize
-  // .sync({force : true})
-  .sync()
+  .sync({force : true})
+  // .sync()
   .then(() => {
     app.listen(port, () => {
     })
