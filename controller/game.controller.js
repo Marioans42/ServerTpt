@@ -1,12 +1,14 @@
 
 const models = require('../models/database');
 const fs = require('fs');
+const convertBase64 = require('base64-arraybuffer');
 
 exports.createGame = async (req, res) => {
     console.log("atooo")
-    let image_path = req.body.image;
-    let image_data = fs.readFileSync(image_path);
-    let base64data = image_data.toString('base64');
+    // let image_path = req.body.image;
+    // let image_data = fs.readFileSync(image_path);
+    // let base64data = image_data.toString('base64');
+    let base64data = req.body.image;
     models.Games.create({ ...req.body })
         .then(async (newgame) => {
 
@@ -70,9 +72,10 @@ exports.allGame = async (req, res) => {
                     GamesID: game.ID
                 })
                 console.log("apres")
-                console.log(image);
+                console.log("ahahahahahah",image[0].dataValues.picture);
+                // game[i].dataValues.images = image[0].dataValues.picture.toString();
                 game[i].dataValues.images = image;
-                console.log('game[' + i + ']', game[i])
+                // console.log('game[' + i + ']', game[i])
             }
             res.status(200).json({ game })
         })

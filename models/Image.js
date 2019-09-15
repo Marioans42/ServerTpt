@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Images = sequelize.define('Images', {
         picture: {
-            type: DataTypes.BLOB('long')
+            type: DataTypes.TEXT
         },
         GamesID: {
             type: DataTypes.INTEGER,
