@@ -149,6 +149,51 @@ exports.getGameUser = (req, res) => {
         })
 }
 
+exports.getTags = (req, res) => {
+    models.Tag.findAll({
+    }).then((tag) => {
+        if (!tag) {
+            res.status(404).send('tags not found')
+        } else {
+            res.status(200).json({ tag })
+        }
+    })
+        .catch(err => {
+            console.log(err);
+            res.status(404).send(err);
+        })
+}
+
+exports.getPlatforms = (req, res) => {
+    models.Platform.findAll({})
+        .then((platforms) => {
+            if (!platforms) {
+                res.status(404).send('Platforms not found')
+            } else {
+                res.status(200).json({ platforms })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).send(err);
+        })
+}
+
+exports.getTechnologies = (req, res) => {
+    models.Technologies.findAll({})
+        .then((technology) => {
+            if (!technology) {
+                res.status(404).send('technology not found')
+            } else {
+                res.status(200).json({ technology })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).send(err);
+        })
+}
+
 // exports.getDowloadedGame = (req, res) => {
 //     let iduser = req.params.id;
 
