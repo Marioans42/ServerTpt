@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
         label: DataTypes.STRING
     });
 
-    Platform.associate = (models) => {
-        models.Platform.belongsToMany(models.Games, {through :'GamesPlatforms', foreignKey:'PlatformID'});
-    }
+    // Platform.associate = (models) => {
+    //     models.Platform.belongsToMany(models.Games, {through :'GamesPlatforms', foreignKey:'PlatformID'});
+    // }
 
     return Platform;
 }

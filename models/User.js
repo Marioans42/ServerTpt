@@ -23,9 +23,9 @@ const User = sequelize.define('User', {
 });
 
 User.associate = (models) => {
-    models.User.belongsTo(models.Region, {foreignKey:'regionid'});
-   models.User.belongsTo(models.Role, {foreignKey:'roleid'});
-   
+//     models.User.belongsTo(models.Region, {foreignKey:'regionid'});
+//    models.User.belongsTo(models.Role, {foreignKey:'roleid'});
+//    models.User.belongsToMany(models.Games, {through :'DowloadedGames', foreignKey:'userID'});
 }
 
 
