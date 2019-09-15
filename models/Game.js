@@ -16,10 +16,11 @@ module.exports = (sequelize, DataTypes) => {
 
     Games.associate = (models) => {
         models.Games.belongsTo(models.User, {foreignKey:'UsersID'});
-        //models.Games.belongsTo(models.Images, {foreignKey:'GamesID'});
+        // models.Games.belongsTo(models.Images, {foreignKey:'GamesID'});
         models.Games.belongsToMany(models.Platform, {through :'GamesPlatforms', foreignKey:'GamesID'});
         models.Games.belongsToMany(models.Technologies, {through :'GamesTechnologies', foreignKey:'GamesID'});
         models.Games.belongsToMany(models.Tag, {through :'GamesTags', foreignKey:'GamesID'});
+        // models.Games.belongsToMany(models.Image, {through :'Images', foreignKey:'GamesID'});
     }
 
     return Games;
