@@ -40,8 +40,8 @@ app.use('/api/profil',profil);
 app.use('/api/friend', friend);
 
 db.sequelize
-  .sync({force : true})
-  // .sync()
+  // .sync({force : true})
+  .sync()
   .then(() => {
     app.listen(port, () => {
     })
