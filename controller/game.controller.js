@@ -49,7 +49,7 @@ exports.createGame = async (req, res) => {
 
             let image = await models.Images.findAll({
                 where: {
-                    GamesID: game.ID
+                    GamesID: game.dataValues.id
                 }
             })
             game.dataValues.images = image;
@@ -70,7 +70,7 @@ exports.allGame = async (req, res) => {
             for (let i = 0; i < game.length; i++) {
                 let image = await models.Images.findAll({
                     where: {
-                        GamesID: game.ID
+                        GamesID: game[i].dataValues.id
                     }
                 })
                 game[i].dataValues.images = image;
@@ -99,7 +99,7 @@ exports.getGame = (req, res) => {
             } else {
                 let image = await models.Images.findAll({
                     where: {
-                        GamesID: game.ID
+                        GamesID: game.dataValues.id
                     }
                 })
                 console.log(image);
@@ -135,7 +135,7 @@ exports.getGameUser = (req, res) => {
                 for (let i = 0; i < game.length; i++) {
                     let image = await models.Images.findAll({
                         where: {
-                            GamesID: game.ID
+                            GamesID: game[i].dataValues.id
                         }
                     })
                     game[i].dataValues.images = image;
